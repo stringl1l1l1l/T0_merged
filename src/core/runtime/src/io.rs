@@ -167,9 +167,9 @@ impl tokio::io::AsyncWrite for Async<TcpStream> {
         }
     }
 
-    fn is_write_vectored(&self) -> bool {
-        self.io.is_write_vectored()
-    }
+    // fn is_write_vectored(&self) -> bool {
+    //     self.io.is_write_vectored()
+    // }
 }
 
 impl<T: AsRawFd> Drop for Async<T> {

@@ -1,4 +1,4 @@
-#![feature(const_fn_trait_bound)]
+// #![feature(const_fn_trait_bound)]
 
 use num_traits::AsPrimitive;
 

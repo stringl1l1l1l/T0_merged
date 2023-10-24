@@ -3,7 +3,7 @@ use async_task::Task;
 use concurrent_queue::ConcurrentQueue;
 use futures_lite::future::{self, yield_now};
 use polling::{Event, Poller};
-use std::lazy::OnceCell;
+use std::cell::OnceCell;
 use std::marker::PhantomData;
 use std::os::unix::io::AsRawFd;
 use std::task::Waker;

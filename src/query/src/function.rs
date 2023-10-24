@@ -9,17 +9,17 @@ impl QueryServer {
     pub(crate) fn compute(
         &self,
         projections: &[Projection],
-        aggregations: Option<Aggregation>,
+        aggregations: &Option<Aggregation>,
         schema: &Schema,
         chunks: &[Chunk<Arc<dyn Array>>],
     ) -> Result<(), Error> {
         if let Some(aggregations) = aggregations {
-            for projection in aggregations.labels {
+            for projection in aggregations.labels.iter() {
                 let offset = schema
                     .fields
                     .iter()
                     .enumerate()
-                    .find(|(_, field)| field.name == projection)
+                    .find(|(_, field)| &field.name == projection)
                     .ok_or_else(|| Error::NoSuchField {
                         name: projection.clone(),
                     })?
